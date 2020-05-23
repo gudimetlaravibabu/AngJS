@@ -1,0 +1,66 @@
+<div class="card">
+        <div class="table-responsive form-group">
+            <p style="text-align:right"><button (click)="ExportTOExcel()">Export to Excel</button></p> 
+                <table #table class="table table-sm table-striped table-dark ea_table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">AccountName</th>
+                        <th scope="col">DHBE</th>
+                        <th scope="col">NPBE</th>
+                        <th scope="col" >PMBE</th>
+                        <th scope="col" >RTBR</th>
+                        <th scope="col" >PMBE-RTBR</th>
+                        <th scope="col" >PMBE-NPBE</th>
+                        <th scope="col" >NPBE-RTBR</th>
+                        <th scope="col" >Remarks</th>
+                   </tr>
+                    </thead>
+                    
+                   
+                    <tbody>
+                      <tr *ngFor="let acntSummary of accountSummary; index as i">
+                        <td scope="row" >{{i+1}}</td>
+                        <td scope="row" >{{acntSummary.accountName}}</td>
+                        <td scope="row" >{{acntSummary.dhBE | number:'1.2-2' }}</td>
+                        <td scope="row" >{{acntSummary.npBE}}</td>
+                        <td scope="row" >{{acntSummary.pmBE}}</td>
+                        
+
+                        <td scope="row" >{{acntSummary.rtb | number:'1.2-2' }} </td>
+                       
+
+                       
+                        <td scope="row" >{{acntSummary.pmBE-acntSummary.rtb | number:'1.2-2' }}</td>
+
+                       
+                                              
+                        <td scope="row" >{{acntSummary.pmBE-acntSummary.npBE}}</td>
+                        <td scope="row" >{{acntSummary.npBE-acntSummary.rtb | number:'1.2-2' }}</td>
+                        <td scope="row" >{{acntSummary.remarks}}</td>
+                        
+                        
+                      </tr>
+                      
+                     <tr>
+                         
+                          <td scope="row" ></td>
+                          <td scope="row" >Total</td>
+                          <td scope="row"  *ngIf = "totalBE">{{totalBE[0] | number:'1.2-2' }}</td>
+                          <td scope="row"  *ngIf = "totalBE">{{totalBE[1] | number:'1.2-2' }}</td>
+                          <td scope="row"  *ngIf = "totalBE">{{totalBE[2] | number:'1.2-2' }}</td> 
+                          <td scope="row"  *ngIf = "totalBE">{{totalBE[3] | number:'1.2-2' }}</td>
+                          <td scope="row"  *ngIf = "totalBE">{{totalBE[4] | number:'1.2-2' }}</td>
+                          <td scope="row"  *ngIf = "totalBE">{{totalBE[5]}}</td>
+                          <td scope="row"  *ngIf = "totalBE">{{totalBE[6] | number:'1.2-2' }}</td>
+                          <td scope="row"></td>
+                         
+
+                      </tr> 
+                    
+                    </tbody>
+              
+                  
+                </table>
+            </div>
+     </div>

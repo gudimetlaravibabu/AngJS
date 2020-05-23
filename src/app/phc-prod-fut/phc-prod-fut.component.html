@@ -1,0 +1,28 @@
+<div class="card">
+    <div class="table-responsive form-group">
+            <table class="table table-sm table-striped table-dark ea_table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">AccountName</th>
+                    <th scope="col">EmpName</th>
+                    <th scope="col">ProjectType</th>
+                    <th scope="col" >NextAllocationDate</th>
+               </tr>
+                </thead>
+                
+               
+                <tbody> 
+                  <tr *ngFor="let phcEmpData of phcEmpData; index as i">
+                    <td scope="row" >{{i+1}}</td>
+                    <td scope="row" >{{phcEmpData.accountName}}</td>
+                    <td scope="row" >{{phcEmpData.empName}}</td>
+                    <td scope="row" >{{phcEmpData.projType}}</td>
+                    <td scope="row" >{{phcEmpData.nextAllocDate | date}}</td>
+                  </tr>
+                </tbody>
+          
+              
+            </table>
+        </div>
+ </div>

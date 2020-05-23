@@ -1,0 +1,81 @@
+<div class="card">
+    <div class="table-responsive form-group">
+        <p style="text-align:right"><button (click)="ExportTOExcel()">Export to Excel</button></p> 
+            <table #table class="table table-sm table-striped table-dark ea_table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">AccountName</th>
+                        <th scope="col">AccountTrack</th>
+                        <th scope="col">DHBE</th>
+                        <th scope="col" >NPBE<a *ngIf="showUpdatebuttonflag"><input type="button" value="update" (click)="updateDB()"></a></th>
+                        <th scope="col">PMBE</th>
+                        <th scope="col">RTBR</th>
+                        <th scope="col">PM-RTBR</th>
+                        <th scope="col"><a (click)="toggleRemarks()">Remarks (click here to {{showRemarksText}})</a></th>
+                        
+                        <th scope="col">PMBE-NPBE</th>
+                        <th scope="col">NPBE-RTBR</th>
+                        <th scope="col">Edit</th>
+                        
+                        
+                      </tr>
+                    </thead>
+                    
+                   
+                    <tbody>
+                      <tr *ngFor="let acntBE of accountBE; index as i">
+                        <td scope="row">{{i+1}}</td>
+                        <td scope="row">{{acntBE.accountName}}</td>
+                        <td scope="row">{{acntBE.accountTrack}}</td>
+                        <td scope="row">{{acntBE.dhBE | number:'1.2-2' }}</td>
+                        <td scope="row">
+                          <p *ngIf="showTextbox[i]"><input type=text appOnlynumber required [(ngModel)]="npBE[i]" (change)="updateAcntBENPBE(i)"></p>
+                          <p *ngIf="!showTextbox[i]">{{acntBE.npBE}}</p>
+                        </td>
+                        <td scope="row">
+                          <p *ngIf="showTextbox[i]"><input type=text appOnlynumber required [(ngModel)]="pmBE[i]" (change)="updateAcntBENPBE(i)"></p>
+                          <p *ngIf="!showTextbox[i]">{{acntBE.pmBE}}</p>
+                        </td>
+                         
+                        <td scope="row">{{acntBE.rtb | number:'1.2-2' }}</td>
+                       
+
+
+                        <td scope="row">{{acntBE.pmBE-acntBE.rtb | number:'1.2-2' }}</td>
+
+                        
+
+                        <td scope="row">
+                          <p *ngIf="showTextbox[i]" (click)="toggleSummary(i)"><textarea class="form-control" rows=5 [(ngModel)]="remarks[i]" (change)="updateAcntBENPBE(i)"></textarea></p>
+                          <p *ngIf="!showTextbox[i]" (click)="toggleSummary(i)">{{acntBE.remarks}}</p>
+                        </td>
+
+                        
+                                              
+                        <td scope="row">{{acntBE.pmBE-acntBE.npBE}}</td>
+                        <td scope="row">{{acntBE.npBE-acntBE.rtb | number:'1.2-2' }}</td>
+                        <td scope="row"><input type="checkbox" (click)="toggleSummary(i); toggleTextbox(i); toggleUpdatebutton()"> </td>
+                        
+                      </tr>
+                     <tr>
+                          <td scope="row"></td>
+                          <td scope="row">Total</td>
+                          <td scope="row"></td>
+                          <td scope="row">{{totalBE[0] | number:'1.2-2' }}</td>
+                          <td scope="row">{{totalBE[1] | number:'1.2-2' }}</td>
+                          <td scope="row">{{totalBE[2] | number:'1.2-2' }}</td> 
+                          <td scope="row">{{totalBE[3] | number:'1.2-2' }}</td>
+                          <td scope="row">{{totalBE[4] | number:'1.2-2' }}</td>
+                          <td scope="row"></td>
+                          <td scope="row">{{totalBE[5] | number:'1.2-2' }}</td>
+                          <td scope="row">{{totalBE[6] | number:'1.2-2' }}</td>
+                          <td scope="row"></td>
+
+                      </tr> 
+                    </tbody>
+              
+                  
+                  </table>
+       </div>
+</div>

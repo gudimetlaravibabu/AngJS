@@ -1,0 +1,66 @@
+<div class="card">
+    <div class="table-responsive form-group">
+        <p style="text-align:right"><button (click)="ExportTOExcel()">Export to Excel</button></p> 
+            <table #table class="table table-sm table-striped table-dark ea_table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">AccountName</th>
+                    <th scope="col">TargetPHC</th>
+                    <th scope="col">TargetVOL</th>
+                    <th scope="col" >PHC Today</th>
+                    <th scope="col" >Vol Today</th>
+                    <th scope="col" >PHC Lastday</th>
+                    <th scope="col" >PHC Gap</th>
+                    <th scope="col" >Vol Gap</th>
+                    <th scope="col" >Remarks</th>
+               </tr>
+                </thead>
+                
+               
+                <tbody>
+                  <tr *ngFor="let acntPV of accountPV; index as i">
+                    <td scope="row" >{{i+1}}</td>
+                    <td scope="row" >{{acntPV.accountName}}</td>
+                    <td scope="row" >{{acntPV.phcTarget}}</td>
+                    <td scope="row" >{{acntPV.volTarget}}</td>
+                    <td scope="row" >{{acntPV.phcAOD}}</td>
+                    
+
+                    <td scope="row" >{{acntPV.volAOD | number:'1.2-2' }} </td>
+                   
+
+                   
+                    <td scope="row" >{{acntPV.phcAOL}}</td>
+
+                   
+                                          
+                    <td scope="row" >{{acntPV.phcTarget-acntPV.phcAOL}}</td>
+                    <td scope="row" >{{acntPV.volTarget-acntPV.volAOD | number:'1.2-2' }}</td>
+                    <td scope="row" >{{acntPV.remarks}}</td>
+                    
+                    
+                  </tr>
+                  
+                 <tr>
+                     
+                      <td scope="row" ></td>
+                      <td scope="row" >Total</td>
+                      <td scope="row"  *ngIf = "totalPV">{{totalPV[0]}}</td>
+                      <td scope="row"  *ngIf = "totalPV">{{totalPV[1] | number:'1.2-2'}}</td>
+                      <td scope="row"  *ngIf = "totalPV">{{totalPV[2]}}</td> 
+                      <td scope="row"  *ngIf = "totalPV">{{totalPV[3] | number:'1.2-2'}}</td>
+                      <td scope="row"  *ngIf = "totalPV">{{totalPV[4]}}</td>
+                      <td scope="row"  *ngIf = "totalPV">{{totalPV[6]}}</td>
+                      <td scope="row"  *ngIf = "totalPV">{{totalPV[7] | number:'1.2-2'}}</td>
+                      <td scope="row"></td>
+                     
+
+                  </tr> 
+                
+                </tbody>
+          
+              
+            </table>
+        </div>
+ </div>

@@ -35,6 +35,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { AuthenticationService } from './authentication.service';
 import { AuthGaurdService } from './auth-gaurd.service';
 import { BasicAuthHttpInterceptorService } from './basic-auth-http-interceptor.service';
+import { PhcVolTargetComponent } from './phc-vol-target/phc-vol-target.component';
 
 
 @NgModule({
@@ -66,7 +67,8 @@ import { BasicAuthHttpInterceptorService } from './basic-auth-http-interceptor.s
     PhcTodayLWDComponent,
     LoadMasterDataComponent,
     LoginComponent,
-    LogoutComponent
+    LogoutComponent,
+    PhcVolTargetComponent
   ],
   imports: [
     BrowserModule,

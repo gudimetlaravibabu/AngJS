@@ -16,7 +16,15 @@ export class AllPhcVolTotalComponent implements OnInit {
 
   response:any;
   
-  totalPV : TotalPV[]=[];
+  totalPV1 : TotalPV[]=[];
+  totalPV2 : TotalPV[]=[];
+  totalPV3 : TotalPV[]=[];
+  totalPV4 : TotalPV[]=[];
+  dm1 : string = 'Amit';
+  dm2 : string = 'Bindu';
+  dm3 : string = 'Harish';
+  dm4 : string = 'NP';
+
  
 
   
@@ -33,17 +41,55 @@ export class AllPhcVolTotalComponent implements OnInit {
  
 
         
-        this.httpClient.get("be/phcvol/total") //, {headers})
+        this.httpClient.get("be/phcvol/total/"+this.dm1) //, {headers})
          .subscribe(
              (response)=>
               {
        
                this.response = response; 
-               this.totalPV=this.response;
+               this.totalPV1=this.response;
+               this.httpClient.get("be/phcvol/total/"+this.dm2) //, {headers})
+              .subscribe(
+                  (response)=>
+                   {
+            
+                    this.response = response; 
+                    this.totalPV2=this.response;
+                    this.httpClient.get("be/phcvol/total/"+this.dm3) //, {headers})
+              .subscribe(
+                  (response)=>
+                   {
+            
+                    this.response = response; 
+                    this.totalPV3=this.response;
+                    this.httpClient.get("be/phcvol/total/"+this.dm4) //, {headers})
+                   .subscribe(
+                       (response)=>
+                        {
+                 
+                         this.response = response; 
+                         this.totalPV4=this.response;
+                        
+                         
+                        }); 
+                   
+                    
+                   }); 
+                   
+                    
+                   }); 
               
                
               }); 
+
+              
          
+
+                   
+
+
+                   
+        
    
 
        

@@ -45,4 +45,9 @@ export class AuthenticationService {
   logOut() {
     sessionStorage.removeItem('username')
   }
+
+  isAdmin() {
+    let user = sessionStorage.getItem('username')
+    return (user === 'admin')
+  }
 }

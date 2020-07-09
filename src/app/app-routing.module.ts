@@ -23,18 +23,19 @@ import { LoadMasterDataComponent } from './load-master-data/load-master-data.com
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { AuthGaurdService } from './auth-gaurd.service';
+import { PhcVolTargetComponent } from './phc-vol-target/phc-vol-target.component';
 
 
 const routes: Route[] = [
-{path: '', redirectTo: '/allaccounts', pathMatch: 'full', canActivate:[AuthGaurdService]},
-{path: 'allaccounts', component: AllAccountsComponent, canActivate:[AuthGaurdService]},
-{path: 'allaccountspu', component: AllAccountsListComponent, canActivate:[AuthGaurdService]},
-{path: 'allaccountsravi', component: AllAccountsDA1Component, canActivate:[AuthGaurdService]},
-{path: 'allaccountsravipu', component: AllAccountsListDA1Component, canActivate:[AuthGaurdService]},
-{path: 'Sarada', component: PMAccountComponent, canActivate:[AuthGaurdService]},
-{path: 'Tanzeem', component: Pm2accountComponent, canActivate:[AuthGaurdService]},
-{path: 'Deepa', component: Pm3accountComponent, canActivate:[AuthGaurdService]},
-{path: 'Purnima', component: Pm4accountComponent, canActivate:[AuthGaurdService]},
+{path: '', redirectTo: '/allphcvolpu', pathMatch: 'full', canActivate:[AuthGaurdService]},
+//{path: 'allaccounts', component: AllAccountsComponent, canActivate:[AuthGaurdService]},
+//{path: 'allaccountspu', component: AllAccountsListComponent, canActivate:[AuthGaurdService]},
+//{path: 'allaccountsravi', component: AllAccountsDA1Component, canActivate:[AuthGaurdService]},
+//{path: 'allaccountsravipu', component: AllAccountsListDA1Component, canActivate:[AuthGaurdService]},
+//{path: 'Sarada', component: PMAccountComponent, canActivate:[AuthGaurdService]},
+//{path: 'Tanzeem', component: Pm2accountComponent, canActivate:[AuthGaurdService]},
+//{path: 'Deepa', component: Pm3accountComponent, canActivate:[AuthGaurdService]},
+//{path: 'Purnima', component: Pm4accountComponent, canActivate:[AuthGaurdService]},
 {path: 'allphcvol', component: PhcVolSummaryComponent, canActivate:[AuthGaurdService]},
 {path: 'allphcvolpu', component: AllphcvolComponent, canActivate:[AuthGaurdService]},
 {
@@ -53,7 +54,8 @@ const routes: Route[] = [
   children:[
     {path: 'dhrtbr', component: DhRtbrComponent, canActivate:[AuthGaurdService]},
     {path: 'volumetoday', component: VolumeTodayComponent, canActivate:[AuthGaurdService]},
-    {path: 'phctodaylwd', component: PhcTodayLWDComponent, canActivate:[AuthGaurdService]}
+    {path: 'phctodaylwd', component: PhcTodayLWDComponent, canActivate:[AuthGaurdService]},
+    {path: 'phcvoltarget', component: PhcVolTargetComponent, canActivate:[AuthGaurdService]}
   ]
 },
 {path: 'addAcnt', component: AddAccountComponent, canActivate:[AuthGaurdService]},

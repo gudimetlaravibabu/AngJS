@@ -26,17 +26,20 @@
                  
                   <tbody>
                     <tr *ngFor="let acntPV of accountPV; index as i">
+                      
                       <td scope="row">{{i+1}}</td>
                       <td scope="row">{{acntPV.accountName}}</td>
                       <td scope="row">{{acntPV.accountTrack}}</td>
                       
 
                       <td scope="row">
-                        <p *ngIf="showTextbox[i]"><input type=text appOnlynumber required [(ngModel)]="phcTarget[i]" (change)="updateAcntBENPBE(i)"></p>
+                        <p *ngIf="showTextbox[i] && loginService.isAdmin()"><input type=text appOnlynumber required [(ngModel)]="phcTarget[i]" (change)="updateAcntBENPBE(i)"></p>
+                        <p *ngIf="showTextbox[i] && !loginService.isAdmin()">{{acntPV.phcTarget}}</p>
                         <p *ngIf="!showTextbox[i]">{{acntPV.phcTarget}}</p>
                       </td>
                       <td scope="row">
-                        <p *ngIf="showTextbox[i]"><input type=text [(ngModel)]="volTarget[i]" (change)="updateAcntBENPBE(i)"></p>
+                        <p *ngIf="showTextbox[i] && loginService.isAdmin()"><input type=text [(ngModel)]="volTarget[i]" (change)="updateAcntBENPBE(i)"></p>
+                        <p *ngIf="showTextbox[i] && !loginService.isAdmin()">{{acntPV.volTarget}}</p>
                         <p *ngIf="!showTextbox[i]">{{acntPV.volTarget}}</p>
                       </td>
 
@@ -56,13 +59,14 @@
                       <td scope="row">{{acntPV.volTarget-acntPV.volAOD | number:'1.2-2' }}</td>
 
                       <td scope="row">
-                        <p *ngIf="showTextbox[i]"><textarea class="form-control rounded-0" rows="5" cols="500" [(ngModel)]="remarks[i]" (change)="updateAcntBENPBE(i)"></textarea></p>
+                        <div class="wrap" *ngIf="showTextbox[i]"><textarea class="e-input" placeholder="Address" [(ngModel)]="remarks[i]" (change)="updateAcntBENPBE(i)"></textarea></div>
+
                         <p *ngIf="!showTextbox[i]">{{acntPV.remarks}}</p>
                       </td>
 
                       
                       <td scope="row"><input type="checkbox" (click)="toggleTextbox(i); toggleUpdatebutton()"> </td>
-                      
+                    
                     </tr>
                    <tr>
                         <td scope="row"></td>

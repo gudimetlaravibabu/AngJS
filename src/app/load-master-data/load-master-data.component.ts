@@ -10,7 +10,8 @@ export class LoadMasterDataComponent implements OnInit {
   routes =[
     {label:"DHRTBRToday", url:"dhrtbr"},
     {label:"VolumeToday", url:"volumetoday"},
-    {label:"PhcTodayLWD", url:"phctodaylwd"}
+    {label:"PhcTodayLWD", url:"phctodaylwd"},
+    {label:"PhcVolumeTarget", url:"phcvoltarget"}
   ]
 
 

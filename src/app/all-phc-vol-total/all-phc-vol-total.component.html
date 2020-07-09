@@ -5,7 +5,7 @@
                     <thead>
                       <tr>
                         
-                        <th scope="col">All Accounts</th>
+                        <th scope="col">DM</th>
                         
                         <th scope="col">TargetPHC<a *ngIf="showUpdatebuttonflag"><input type="button" value="update" (click)="updateDB()"></a></th>
                         <th scope="col">TargetVOL</th>
@@ -25,23 +25,73 @@
                     
                    
                     <tbody>
-
-                     <tr>
+                        <tr>
                           
-                          <td scope="row">Total</td>
+                            <td scope="row">Amit</td>
+                            
+                            <td scope="row">{{totalPV1[0]}}</td>
+                            <td scope="row">{{totalPV1[1] | number:'1.2-2' }}</td>
+                            <td scope="row">{{totalPV1[2]}}</td>
+                            <td scope="row">{{totalPV1[3] | number:'1.2-2' }}</td>
+                            <td scope="row">{{totalPV1[4]}}</td>
+                            
+                            <td scope="row">{{totalPV1[6]}}</td>
+                            <td scope="row">{{totalPV1[7] | number:'1.2-2' }}</td>
+                            
+                            
+    
+                        </tr> 
+                        <tr>
+                            
+                          <td scope="row">Bindu</td>
                           
-                          <td scope="row">{{totalPV[0]}}</td>
-                          <td scope="row">{{totalPV[1] | number:'1.2-2' }}</td>
-                          <td scope="row">{{totalPV[2]}}</td>
-                          <td scope="row">{{totalPV[3] | number:'1.2-2' }}</td>
-                          <td scope="row">{{totalPV[4]}}</td>
+                          <td scope="row">{{totalPV2[0]}}</td>
+                          <td scope="row">{{totalPV2[1] | number:'1.2-2' }}</td>
+                          <td scope="row">{{totalPV2[2]}}</td>
+                          <td scope="row">{{totalPV2[3] | number:'1.2-2' }}</td>
+                          <td scope="row">{{totalPV2[4]}}</td>
                           
-                          <td scope="row">{{totalPV[6]}}</td>
-                          <td scope="row">{{totalPV[7] | number:'1.2-2' }}</td>
+                          <td scope="row">{{totalPV2[6]}}</td>
+                          <td scope="row">{{totalPV2[7] | number:'1.2-2' }}</td>
                           
                           
   
                       </tr> 
+                      <tr>
+                            
+                        <td scope="row">Harish</td>
+                        
+                        <td scope="row">{{totalPV3[0]}}</td>
+                        <td scope="row">{{totalPV3[1] | number:'1.2-2' }}</td>
+                        <td scope="row">{{totalPV3[2]}}</td>
+                        <td scope="row">{{totalPV3[3] | number:'1.2-2' }}</td>
+                        <td scope="row">{{totalPV3[4]}}</td>
+                        
+                        <td scope="row">{{totalPV3[6]}}</td>
+                        <td scope="row">{{totalPV3[7] | number:'1.2-2' }}</td>
+                        
+                        
+  
+                    </tr> 
+
+                     
+                  <tr>
+                          
+                    <td scope="row">NP</td>
+                    
+                    <td scope="row">{{totalPV4[0]}}</td>
+                    <td scope="row">{{totalPV4[1] | number:'1.2-2' }}</td>
+                    <td scope="row">{{totalPV4[2]}}</td>
+                    <td scope="row">{{totalPV4[3] | number:'1.2-2' }}</td>
+                    <td scope="row">{{totalPV4[4]}}</td>
+                    
+                    <td scope="row">{{totalPV4[6]}}</td>
+                    <td scope="row">{{totalPV4[7] | number:'1.2-2' }}</td>
+                    
+                    
+
+                </tr> 
+                
                     </tbody>
               
                   

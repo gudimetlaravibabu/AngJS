@@ -13,6 +13,7 @@ export class AllphcvolComponent implements OnInit {
   response:any;
   accountPV : AccountPV[]=[];
   totalPV : TotalPV[]=[];
+  dm : string = 'NP';
  
 
   
@@ -27,7 +28,7 @@ export class AllphcvolComponent implements OnInit {
     let password = 'pass'
     const headers = new HttpHeaders({ Authorization : 'Basic' + btoa(username +':'+password)}); */
  
-   this.httpClient.get("be/phcvol") //, {headers})
+   this.httpClient.get("be/phcvol/"+this.dm) //, {headers})
       .subscribe(
        (response)=>
         {
@@ -35,7 +36,7 @@ export class AllphcvolComponent implements OnInit {
          this.response = response; 
          this.accountPV =this.response;
         
-        this.httpClient.get("be/phcvol/total") //, {headers})
+        this.httpClient.get("be/phcvol/total/"+this.dm) //, {headers})
          .subscribe(
              (response)=>
               {

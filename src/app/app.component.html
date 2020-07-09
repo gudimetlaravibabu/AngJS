@@ -6,12 +6,22 @@
 
             <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
 
-        <ng-container *ngIf="loginService.isUserLoggedIn()">
+        <ng-container *ngIf="loginService.isUserLoggedIn() && !loginService.isAdmin()">
 
-            <div *ngFor="let route of routes">
+             <div *ngFor="let route of routes">
 
                    <li><a [routerLink]="route.url" class="nav-link">{{route.label}}</a></li>
             </div>
+        </ng-container>
+
+        <ng-container *ngIf="loginService.isUserLoggedIn() && loginService.isAdmin()">
+          
+     
+            <div *ngFor="let route of routesAdmin">
+
+                    <li><a [routerLink]="route.url" class="nav-link">{{route.label}}</a></li>
+             </div>
+             
 
         </ng-container>
        

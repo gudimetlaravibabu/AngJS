@@ -6,6 +6,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { saveAs } from 'file-saver';
 import * as XLSX from 'xlsx';
+import { AuthenticationService } from '../authentication.service';
 
 @Component({
   selector: 'app-phc-vol-tile',
@@ -28,7 +29,7 @@ export class PhcVolTileComponent implements OnInit {
   remarks : string[]=[];
   url:string;
       
-  constructor(private httpClient: HttpClient, private truncatePipe:TruncatePipe, private router: Router) { 
+  constructor(private httpClient: HttpClient, private truncatePipe:TruncatePipe, private router: Router, private loginService:AuthenticationService) { 
     
   }
 
@@ -114,14 +115,14 @@ export class PhcVolTileComponent implements OnInit {
              }).subscribe((res)=>
              {
               
-               this.httpClient.get("be/phcvol/total")
+               this.httpClient.get("be/phcvol/total/"+p.dm)
                .subscribe(
                (response)=>
                 {
          
                  this.response = response; 
                  this.totalPV=this.response;
-                 this.router.navigateByUrl('allphcvol');
+                 this.router.navigateByUrl('allphcvoltotal');
                 });
                
              }
